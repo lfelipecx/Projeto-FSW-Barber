@@ -22,7 +22,7 @@ model Barbershop {
   address  String
   imageUrl String
   services Service[]
-  bookings  Booking[]
+  bookings Booking[]
 }
 
 model Service {
@@ -32,7 +32,8 @@ model Service {
   barbershopId String
   barbershop   Barbershop @relation(fields: [barbershopId], references: [id])
   description  String
-  bookings      Booking[]
+  bookings     Booking[]
+  imageUrl     String
 }
 
 model Booking {
@@ -44,4 +45,5 @@ model Booking {
   barbershopId String
   barbershop   Barbershop @relation(fields: [barbershopId], references: [id])
   date         DateTime
+  status       String
 }
